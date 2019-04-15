@@ -1,0 +1,8 @@
+-
+  name: box-ng setup
+  hosts: localhost
+  tasks:
+    - name: Run pacman -Syu
+      pacman:
+        update_cache: yes
+        upgrade: yes
