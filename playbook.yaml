@@ -2,7 +2,10 @@
   name: box-ng setup
   hosts: localhost
   tasks:
-    - name: Run pacman -Syu
-      pacman:
+    - name: apt-get update
+      apt:
         update_cache: yes
-        upgrade: yes
+
+    - name: apt-get dist-upgrade
+      apt:
+        upgrade: dist
