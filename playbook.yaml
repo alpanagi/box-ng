@@ -3,9 +3,11 @@
   hosts: localhost
   tasks:
     - name: apt-get update
+      become: true
       apt:
         update_cache: yes
 
     - name: apt-get dist-upgrade
+      become: true
       apt:
         upgrade: dist
