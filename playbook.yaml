@@ -11,3 +11,8 @@
       become: true
       apt:
         upgrade: dist
+
+    - name: install vscode
+      snap:
+        name: code
+        classic: yes
