@@ -3,11 +3,11 @@
   hosts: localhost
   tasks:
     - name: pacman -Syu
-    pacman:
-      update_cache: yes
-      upgrade: yes
+      pacman:
+        update_cache: yes
+        upgrade: yes
 
     - name: Create workspace directory
-    file:
-      path: ~/devops_directory
-      state: directory
+      file:
+        path: ~/devops_directory
+        state: directory
