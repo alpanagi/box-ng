@@ -2,17 +2,12 @@
   name: box-ng setup
   hosts: localhost
   tasks:
-    - name: apt-get update
-      become: true
-      apt:
-        update_cache: yes
+    - name: pacman -Syu
+    pacman:
+      update_cache: yes
+      upgrade: yes
 
-    - name: apt-get dist-upgrade
-      become: true
-      apt:
-        upgrade: dist
-
-    - name: install vscode
-      snap:
-        name: code
-        classic: yes
+    - name: Create workspace directory
+    file:
+      path: ~/devops_directory
+      state: directory
