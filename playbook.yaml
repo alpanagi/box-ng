@@ -10,18 +10,20 @@
 
     - name: Install tools
       become: yes
-      pacman:
+      package:
         name: '{{ item }}'
         state: latest
+        use: pacman
       with_items:
         - neovim
         - ripgrep
 
     - name: Install development software
       become: yes
-      pacman:
+      package:
         name: '{{ item }}'
         state: latest
+        use: pacman
       with_items:
         - code
         - nodejs
