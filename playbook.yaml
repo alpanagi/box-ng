@@ -11,7 +11,7 @@
     - name: Install tools
       become: yes
       pacman:
-        name: {{ item }}
+        name: '{{ item }}'
         state: latest
       with_items:
         - neovim
@@ -20,7 +20,7 @@
     - name: Install development software
       become: yes
       pacman:
-        name: {{ item }}
+        name: '{{ item }}'
         state: latest
       with_items:
         - code
