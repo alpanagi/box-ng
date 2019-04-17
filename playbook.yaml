@@ -36,5 +36,5 @@
 
     - name: Create workspace directory
       file:
-        path: ~/devops_directory
+        path: ~/workspace
         state: directory
