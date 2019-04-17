@@ -11,14 +11,25 @@
     - name: Install tools
       become: yes
       pacman:
-        name: neovim, ripgrep
+        name: {{ item }}
         state: latest
+      with_items:
+        - neovim
+        - ripgrep
 
     - name: Install development software
       become: yes
       pacman:
-        name: code, nodejs, jq, jdk-openjdk, maven, python, python-pip
+        name: {{ item }}
         state: latest
+      with_items:
+        - code
+        - nodejs
+        - jq
+        - jdk-openjdk
+        - maven
+        - python
+        - python-pip
 
     # At some point I need to automate this for changing versions
     - name: Change java version to 11
