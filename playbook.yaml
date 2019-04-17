@@ -7,9 +7,14 @@
         update_cache: yes
         upgrade: yes
 
-    - name: Install vscode
+    - name: Install tools
       pacman:
-        name: code
+        name: neovim, ripgrep
+        state: latest
+
+    - name: Install development software
+      pacman:
+        name: code, nodejs, jq, jdk-openjdk, maven, python, python-pip
         state: latest
 
     - name: Create workspace directory
