@@ -18,6 +18,7 @@
         - neovim
         - ripgrep
         - tree
+        - firefox
         - filezilla
         - gimp
 
@@ -36,6 +37,11 @@
         - python
         - python-pip
         - docker
+
+    - name: Enable docker service and start it
+      service:
+        name: docker
+        enabled: yes
 
     # At some point I need to automate this for changing versions
     - name: Change java version to 11
