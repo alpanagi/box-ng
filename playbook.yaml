@@ -17,6 +17,7 @@
       with_items:
         - neovim
         - ripgrep
+        - filezilla
 
     - name: Install development software
       become: yes
@@ -46,6 +47,15 @@
         - rbbit.typescript-hero
         - vscodevim.vim
         - dbaeumer.vscode-eslint
+
+    - name: Add settings to .bashrc
+      lineinfile:
+        path: ~/.config/.bashrc
+        line: {{ item }}
+      with_items:
+        - state -o vi
+        - alias vi='nvim'
+        - alias vim='nvim'
 
     - name: Create workspace directory
       file:
