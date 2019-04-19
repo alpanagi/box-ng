@@ -51,7 +51,7 @@
     - name: Add settings to .bashrc
       lineinfile:
         path: ~/.config/.bashrc
-        line: {{ item }}
+        line: '{{ item }}'
       with_items:
         - state -o vi
         - alias vi='nvim'
