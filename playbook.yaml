@@ -2,12 +2,6 @@
   name: box-ng setup
   hosts: localhost
   tasks:
-    - name: pacman -Syu
-      become: yes
-      pacman:
-        update_cache: yes
-        upgrade: yes
-
     - name: Install tools
       become: yes
       package:
