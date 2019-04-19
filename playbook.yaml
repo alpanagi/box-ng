@@ -17,7 +17,9 @@
       with_items:
         - neovim
         - ripgrep
+        - tree
         - filezilla
+        - gimp
 
     - name: Install development software
       become: yes
@@ -33,6 +35,7 @@
         - maven
         - python
         - python-pip
+        - docker
 
     # At some point I need to automate this for changing versions
     - name: Change java version to 11
