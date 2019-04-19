@@ -50,7 +50,7 @@
 
     - name: Add settings to .bashrc
       lineinfile:
-        path: ~/.config/.bashrc
+        path: ~/.bashrc
         line: '{{ item }}'
       with_items:
         - state -o vi
