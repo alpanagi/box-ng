@@ -89,7 +89,7 @@
       lineinfile:
         path: ~/.config/xfce4/terminal/terminalrc
         regex: FontName
-        line: 'FontName=Note Sans Mono Medium'
+        line: 'FontName=Noto Sans Mono Medium'
 
     - name: Replace Super_L with Super+R to open menu
       lineinfile:
