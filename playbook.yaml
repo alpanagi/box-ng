@@ -72,12 +72,13 @@
         path: ~/workspace
         state: directory
 
-    - name: Copy keyboard layout configuration
+    - name: Copy configuration files
       copy:
         src:  '{{ item }}'
         dest: ~/{{ item }}
       with_items:
         - .config/xfce4/xfconf/xfce-perchannel-xml/keyboard-layout.xml
+        - .config/nvim/init.vim
 
     - name: Replace Super_L with Super+R to open menu
       lineinfile:
