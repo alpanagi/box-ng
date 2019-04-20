@@ -104,3 +104,6 @@
         regexp: 'Super&gt;Page_Down'
         insertafter: Super(_L|&gt;r)
         line: '      <property name="&lt;Super&gt;Page_Down" type="string" value="pulseaudio-ctl down"/>'
+
+    - name: Set number of workspaces to 1
+      command: xfconf-query -c xfwm4 -p /general/workspace_count -s 1
