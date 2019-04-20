@@ -72,6 +72,11 @@
         path: ~/workspace
         state: directory
 
+    - name: Create workspace directory
+      file:
+        path: ~/.config/nvim/
+        state: directory
+
     - name: Copy configuration files
       copy:
         src:  '{{ item }}'
