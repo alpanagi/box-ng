@@ -68,7 +68,7 @@
 
     - name: Copy keyboard layout configuration
       copy:
-        src:  {{ item }}
+        src:  '{{ item }}'
         dest: ~/{{ item }}
       with_items:
         - .config/xfce4/xfconf/xfce-perchannel-xml/keyboard-layout.xml
