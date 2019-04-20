@@ -75,6 +75,6 @@
 
     - name: Replace Super_L with Super+R to open menu
       lineinfile:
-        path: ~/.config/xfce4/xfconf/xfce-perchannel-xml/keyboard-shortcuts.xml
+        path: ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
         regexp: Super_L
         line: <property name="&lt;Super&gt;r" type="string" value="xfce4-popup-whiskermenu"/>
