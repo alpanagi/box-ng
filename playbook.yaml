@@ -85,6 +85,12 @@
         - .config/xfce4/xfconf/xfce-perchannel-xml/keyboard-layout.xml
         - .config/nvim/init.vim
 
+    - name: Set terminal font
+      lineinfile:
+        path: ~/.config/xfce4/terminal/terminalrc
+        regex: FontName
+        line: 'FontName=Note Sans Mono Medium'
+
     - name: Replace Super_L with Super+R to open menu
       lineinfile:
         path: ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
