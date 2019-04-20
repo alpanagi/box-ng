@@ -90,11 +90,11 @@
         path: ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
         regexp: 'Super&gt;Page_Up'
         insertafter: Super(_L|&gt;r)
-        line: '      <property name="&lt;Super&gt;Page_Up" type="string" value="amixer -q sset Master %3+"/>'
+        line: '      <property name="&lt;Super&gt;Page_Up" type="string" value="pulseaudio-ctl up"/>'
 
     - name: Add shortcut for volume down
       lineinfile:
         path: ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
         regexp: 'Super&gt;Page_Down'
         insertafter: Super(_L|&gt;r)
-        line: '      <property name="&lt;Super&gt;Page_Down" type="string" value="amixer -q sset Master %3-"/>'
+        line: '      <property name="&lt;Super&gt;Page_Down" type="string" value="pulseaudio-ctl down"/>'
