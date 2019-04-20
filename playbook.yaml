@@ -83,4 +83,4 @@
       lineinfile:
         path: ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
         regexp: Super(_L|&gt;r)
-        line: <property name="&lt;Super&gt;r" type="string" value="xfce4-popup-whiskermenu"/>
+        line: '      <property name="&lt;Super&gt;r" type="string" value="xfce4-popup-whiskermenu"/>'
