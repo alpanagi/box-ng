@@ -63,7 +63,7 @@
         path: ~/.bashrc
         line: '{{ item }}'
       with_items:
-        - state -o vi
+        - set -o vi
         - alias vi='nvim'
         - alias vim='nvim'
 
