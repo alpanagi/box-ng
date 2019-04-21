@@ -1,7 +1,9 @@
 # box-ng
 
-1. Install ansible `pacman -S ansible`
-2. Fetch repo `git clone https://github.com/alpanagi/box-ng.git`
-3. Change directory to repo `cd box-ng`
-4. Run installation `bash run.sh`
-5. Install proprietery nvidia driver
+1. Update System `pacman -Syu`
+2. Install ansible `pacman -S ansible`
+3. Fetch repo `git clone https://github.com/alpanagi/box-ng.git`
+4. Change directory to repo `cd box-ng`
+5. Run installation `bash run.sh`
+6. Install proprietery nvidia driver
+7. Log into Firefox account to enable Sync
