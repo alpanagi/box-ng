@@ -78,6 +78,14 @@
       with_items:
         - .config/xfce4/xfconf/xfce-perchannel-xml/keyboard-layout.xml
         - .config/nvim/init.vim
+        - .gitconfig
+
+    - name: Add alex user to bumblebee group
+      become: yes
+      user:
+        name: alex
+        group: bumblebee
+        append: yes
 
     - name: Set terminal font
       lineinfile:
