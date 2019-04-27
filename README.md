@@ -8,3 +8,4 @@
 6. Install proprietery nvidia driver
 7. Log into Firefox account to enable Sync
 8. Generate SSH keys and add them to github.com (until I automate it with ansible)
+9. *Temporary*: Enable AUR
