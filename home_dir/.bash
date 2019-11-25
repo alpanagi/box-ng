@@ -1,6 +1,11 @@
+export EDITOR=nvim
+
 # global
 alias iaf="tree -iaf --noreport"
 alias exit='zuf ~/.bash_history && > ~/.bash_history && history -c && exit'
+
+alias python="python3"
+alias pip="pip3"
 
 # linux
 # alias zuf='shred -zuf'
