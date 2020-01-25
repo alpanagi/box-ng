@@ -9,5 +9,8 @@
 
     - name: Install packages
       pacman:
-        name: firefox
+        name: 
+          - firefox
+          - vscode
+          - neovim
         state: present
