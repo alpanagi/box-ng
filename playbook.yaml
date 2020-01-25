@@ -13,4 +13,5 @@
           - code
           - firefox
           - neovim
+          - terraform
         state: present
