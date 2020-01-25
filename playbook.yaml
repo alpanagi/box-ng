@@ -10,7 +10,7 @@
     - name: Install packages
       pacman:
         name: 
+          - code
           - firefox
-          - vscode
           - neovim
         state: present
