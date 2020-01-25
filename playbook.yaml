@@ -2,116 +2,12 @@
   name: box-ng setup
   hosts: localhost
   tasks:
-    - name: Install tools
-      become: yes
-      package:
-        name: '{{ item }}'
-        state: latest
-        use: pacman
-      with_items:
-        - neovim
-        - ripgrep
-        - tree
-        - firefox
-        - virtualbox
-        - filezilla
-        - gimp
+    - name: Update pacman
+      pacman:
+        update_cache: yes
+        upgrade: yes
 
-    - name: Install development software
-      become: yes
-      package:
-        name: '{{ item }}'
-        state: latest
-        use: pacman
-      with_items:
-        - code
-        - nodejs
-        - jq
-        - jdk-openjdk
-        - maven
-        - python
-        - python-pip
-        - docker
-
-    - name: Enable docker service and start it
-      service:
-        name: docker
-        enabled: yes
-
-    # At some point I need to automate this for changing versions
-    - name: Change java version to 11
-      become: yes
-      command: archlinux-java set java-11-openjdk
-
-    - name: Install vscode extensions
-      command: code --install-extension {{ item }}
-      with_items:
-        - eamodio.gitlens
-        - esbenp.prettier-vscode
-        - rbbit.typescript-hero
-        - vscodevim.vim
-        - dbaeumer.vscode-eslint
-
-    - name: Add settings to .bashrc
-      lineinfile:
-        path: ~/.bashrc
-        line: '{{ item }}'
-      with_items:
-        - set -o vi
-        - alias vi='nvim'
-        - alias vim='nvim'
-
-    - name: Create workspace directory
-      file:
-        path: ~/workspace
-        state: directory
-
-    - name: Create workspace directory
-      file:
-        path: ~/.config/nvim/
-        state: directory
-
-    - name: Copy configuration files
-      copy:
-        src:  '{{ item }}'
-        dest: ~/{{ item }}
-      with_items:
-        - .config/xfce4/xfconf/xfce-perchannel-xml/keyboard-layout.xml
-        - .config/nvim/init.vim
-        - .gitconfig
-
-    - name: Add alex user to bumblebee group
-      become: yes
-      user:
-        name: alex
-        group: bumblebee
-        append: yes
-
-    - name: Set terminal font
-      lineinfile:
-        path: ~/.config/xfce4/terminal/terminalrc
-        regex: FontName
-        line: 'FontName=Noto Sans Mono Medium'
-
-    - name: Replace Super_L with Super+R to open menu
-      lineinfile:
-        path: ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
-        regexp: Super(_L|&gt;r)
-        line: '      <property name="&lt;Super&gt;r" type="string" value="xfce4-popup-whiskermenu"/>'
-
-    - name: Add shortcut for volume up
-      lineinfile:
-        path: ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
-        regexp: 'Super&gt;Page_Up'
-        insertafter: Super(_L|&gt;r)
-        line: '      <property name="&lt;Super&gt;Page_Up" type="string" value="pulseaudio-ctl up"/>'
-
-    - name: Add shortcut for volume down
-      lineinfile:
-        path: ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
-        regexp: 'Super&gt;Page_Down'
-        insertafter: Super(_L|&gt;r)
-        line: '      <property name="&lt;Super&gt;Page_Down" type="string" value="pulseaudio-ctl down"/>'
-
-    - name: Set number of workspaces to 1
-      command: xfconf-query -c xfwm4 -p /general/workspace_count -s 1
+    - name: Install packages
+      pacman:
+        name: firefox
+        state: present
