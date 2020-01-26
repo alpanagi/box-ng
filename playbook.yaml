@@ -13,5 +13,18 @@
           - code
           - firefox
           - neovim
+          - ranger
           - terraform
         state: present
+
+    - name: Create neovim configuration folder
+      file:
+        path: ~/.config/nvim/
+        state: directory
+
+    - name: Configure neovim
+      copy:
+        src: .config/nvim/init.vim
+        dest: ~/.config/nvim/init.vim
+        owner: alpanagi
+        group: alpanagi
