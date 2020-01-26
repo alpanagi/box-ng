@@ -6,6 +6,7 @@
       pacman:
         update_cache: yes
         upgrade: yes
+      become: yes
 
     - name: Install packages
       pacman:
@@ -16,6 +17,7 @@
           - ranger
           - terraform
         state: present
+      become: yes
 
     - name: Create neovim configuration folder
       file:
