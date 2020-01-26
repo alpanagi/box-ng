@@ -31,3 +31,6 @@
         dest: /home/alpanagi/.config/nvim/init.vim
         owner: alpanagi
         group: alpanagi
+
+    - name: Install plugins
+      shell: nvim +PlugInstall +qall
