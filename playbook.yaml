@@ -16,6 +16,7 @@
           - neovim
           - ranger
           - terraform
+          - tmux
         state: present
       become: yes
 
@@ -31,8 +32,11 @@
       copy:
         src: .config/nvim/init.vim
         dest: /home/alpanagi/.config/nvim/init.vim
-        owner: alpanagi
-        group: alpanagi
 
     - name: Install plugins
       shell: nvim +PlugInstall +qall
+
+    - name: Configure tmux
+      copy:
+        src: .config/.tmux.conf
+        dest: /home/alpanagi/.tmux.conf
