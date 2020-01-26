@@ -19,12 +19,12 @@
 
     - name: Create neovim configuration folder
       file:
-        path: ~/.config/nvim/
+        path: /home/alpanagi/.config/nvim/
         state: directory
 
     - name: Configure neovim
       copy:
         src: .config/nvim/init.vim
-        dest: ~/.config/nvim/init.vim
+        dest: /home/alpanagi/.config/nvim/init.vim
         owner: alpanagi
         group: alpanagi
