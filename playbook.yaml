@@ -92,14 +92,14 @@
     #     - vscodevim.vim
     #     - dbaeumer.vscode-eslint
 
-    # - name: Add settings to .bashrc
-    #   lineinfile:
-    #     path: ~/.bashrc
-    #     line: '{{ item }}'
-    #   with_items:
-    #     - set -o vi
-    #     - alias vi='nvim'
-    #     - alias vim='nvim'
+    - name: Add settings to .bashrc
+      lineinfile:
+        path: ~/.bashrc
+        line: '{{ item }}'
+      with_items:
+        - set -o vi
+        - alias vi='nvim'
+        - alias vim='nvim'
 
     - name: Create workspace directory
       file:
@@ -111,14 +111,13 @@
         path: ~/.config/nvim/
         state: directory
 
-    # - name: Copy configuration files
-    #   copy:
-    #     src:  '{{ item }}'
-    #     dest: ~/{{ item }}
-    #   with_items:
-    #     - .config/xfce4/xfconf/xfce-perchannel-xml/keyboard-layout.xml
-    #     - .config/nvim/init.vim
-    #     - .gitconfig
+    - name: Copy configuration files
+      copy:
+        src:  '{{ item }}'
+        dest: ~/{{ item }}
+      with_items:
+        - .config/nvim/init.vim
+        - .gitconfig
 
     # - name: Add alex user to bumblebee group
     #   become: yes
