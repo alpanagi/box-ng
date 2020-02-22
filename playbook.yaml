@@ -15,7 +15,6 @@
         state: latest
         use: pacman
       with_items:
-        - filezilla
         - gimp
         - libreoffice-fresh
         - steam-manjaro
@@ -27,8 +26,11 @@
         state: latest
         use: pacman
       with_items:
+        - filezilla
         - firefox
+        - gnu-netcat
         - neovim
+        - nmap
         - ranger
         - ripgrep
         - terraform
@@ -124,10 +126,11 @@
         - .tmux.conf
 
     - name: Install vim-plug and install plugins
-      warn: false
       shell: |
         curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
         nvim --headless +PlugInstall +qall
+      args:
+        warn: no
 
     # - name: Add alex user to bumblebee group
     #   become: yes
