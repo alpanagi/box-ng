@@ -28,6 +28,7 @@
         - ripgrep
         - tree
         - tmux
+        - ranger
         - firefox
         - virtualbox
         - filezilla
