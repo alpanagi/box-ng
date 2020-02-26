@@ -38,6 +38,15 @@
         - tree
         - virtualbox
 
+    - name: Install work software
+      become: yes
+      package:
+        name: '{{ item }}'
+        state: latest
+        use: pacman
+      with_items:
+        - kubectl
+
     - name: Install development software
       become: yes
       package:
