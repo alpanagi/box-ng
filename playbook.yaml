@@ -33,7 +33,6 @@
         - nmap
         - ranger
         - ripgrep
-        - terraform
         - tmux
         - tree
         - virtualbox
@@ -46,6 +45,7 @@
         use: pacman
       with_items:
         - kubectl
+        - terraform
 
     - name: Install development software
       become: yes
