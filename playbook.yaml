@@ -68,7 +68,7 @@
         - docker
 
     - name: Install packages from AUR
-      command: yay -S --answerclean=a --answerdiff=n --removemake {{ item }}
+      command: yay -S --answerclean=no --answerdiff=n --removemake {{ item }}
       with_items:
         - google-cloud-sdk
 
