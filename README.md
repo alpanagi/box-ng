@@ -11,5 +11,6 @@
 # Optional Google Cloud
 
 1. curl https://sdk.cloud.google.com | bash
-2. gcloud init
-3. gcloud components update
+2. Restart shell
+3. gcloud init
+4. gcloud components update
