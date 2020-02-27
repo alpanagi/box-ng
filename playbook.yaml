@@ -36,6 +36,7 @@
         - tmux
         - tree
         - virtualbox
+        - yay
 
     - name: Install work software
       become: yes
@@ -54,14 +55,21 @@
         state: latest
         use: pacman
       with_items:
+        - base-devel
         - code
         - nodejs
+        - npm
         - jq
         - jdk-openjdk
         - maven
         - python
         - python-pip
         - docker
+
+    - name: Install packages from AUR
+      command: yay -S --answerclean=a --answerdiff=n --removemake {{ item }}
+      with_items:
+        - google-cloud-sdk
 
     - name: Enable docker service and start it
       become: yes
