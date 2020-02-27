@@ -8,7 +8,7 @@
 6. Install proprietary nvidia driver
 7. Copy ssh keys and config to new machine and chmod them to 700
 
-# Temporary
+# Optional Google Cloud
 
-1. gcloud init
-2. gcloud update components
+1. curl https://sdk.cloud.google.com | bash
+2. gcloud components update

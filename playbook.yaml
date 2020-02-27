@@ -67,10 +67,9 @@
         - python-pip
         - docker
 
-    - name: Install packages from AUR
-      command: yay -S --answerclean=no --answerdiff=n --removemake {{ item }}
-      with_items:
-        - google-cloud-sdk
+    # - name: Install packages from AUR
+    #   command: yay -S --answerclean=no --answerdiff=n --removemake {{ item }}
+    #   with_items:
 
     - name: Enable docker service and start it
       become: yes
