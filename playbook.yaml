@@ -29,6 +29,7 @@
         - filezilla
         - firefox
         - gnu-netcat
+        - manjaro-printer
         - neovim
         - nmap
         - ranger
@@ -75,6 +76,12 @@
       become: yes
       service:
         name: docker
+        enabled: yes
+
+    - name: Enable printer service and start it
+      become: yes
+      service:
+        name: org.cups.cupsd
         enabled: yes
 
     - name: Configure clipman
