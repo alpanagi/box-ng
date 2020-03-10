@@ -66,6 +66,7 @@
         - python
         - python-pip
         - docker
+        - docker-compose
 
     # - name: Install packages from AUR
     #   command: yay -S --answerclean=no --answerdiff=n --removemake {{ item }}
