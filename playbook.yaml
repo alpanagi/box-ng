@@ -28,6 +28,7 @@
       with_items:
         - filezilla
         - firefox
+        - galculator
         - gnu-netcat
         - manjaro-printer
         - neovim
