@@ -115,6 +115,11 @@
         value_type: "string"
         value: "grp:alt_shift_toggle"
 
+    - name: Disable xfce4-terminal F1 key going to help
+      lineinfile:
+        path: ~/.config/xfce4/terminal/terminalrc
+        line: ShortcutsNoHelpkey=TRUE
+
     # - name: Install vscode extensions
     #   command: code --install-extension {{ item }}
     #   with_items:
