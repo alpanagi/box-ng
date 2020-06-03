@@ -28,10 +28,12 @@
         state: latest
         use: pacman
       with_items:
+        - chromium
         - filezilla
         - firefox
         - galculator
         - gnu-netcat
+        - krita
         - manjaro-printer
         - neovim
         - nmap
@@ -74,6 +76,13 @@
         - docker
         - docker-compose
         - yarn
+
+    - name: Install snaps
+      become: yes
+      snap:
+        classic: yes
+        name:
+          - android-studio
 
     - name: Enable docker service and start it
       become: yes
