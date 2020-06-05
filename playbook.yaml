@@ -28,6 +28,7 @@
         state: latest
         use: pacman
       with_items:
+        - cronie
         - chromium
         - filezilla
         - firefox
@@ -83,6 +84,12 @@
         classic: yes
         name:
           - android-studio
+
+    - name: enable service httpd and ensure it is not masked
+      systemd:
+        name: cronie
+        enabled: yes
+        masked: no
 
     - name: Enable docker service and start it
       become: yes
