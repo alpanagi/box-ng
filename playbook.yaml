@@ -15,7 +15,9 @@
         state: latest
         use: pacman
       with_items:
+        - blender
         - gimp
+        - kdeconnect
         - libreoffice-fresh
         - steam-manjaro
 
@@ -26,29 +28,21 @@
         state: latest
         use: pacman
       with_items:
+        - chromium
         - filezilla
         - firefox
-        - galculator
         - gnu-netcat
+        - krita
         - manjaro-printer
         - neovim
         - nmap
         - ranger
         - ripgrep
+        - snapd
         - tmux
         - tree
         - virtualbox
         - yay
-
-    - name: Install work software
-      become: yes
-      package:
-        name: '{{ item }}'
-        state: latest
-        use: pacman
-      with_items:
-        - kubectl
-        - terraform
 
     - name: Install development software
       become: yes
@@ -64,70 +58,35 @@
         - jq
         - jdk-openjdk
         - maven
+        - openjdk-doc
+        - openjdk-src
         - postgresql
         - python
         - python-pip
-        - docker
-        - docker-compose
         - yarn
 
-    # - name: Install packages from AUR
-    #   command: yay -S --answerclean=no --answerdiff=n --removemake {{ item }}
-    #   with_items:
-
-    - name: Enable docker service and start it
+    - name: Enable snap
       become: yes
       service:
-        name: docker
+        name: snapd
         enabled: yes
+        state: started
+
+    - name: Install snaps
+      become: yes
+      snap:
+        classic: yes
+        name:
+          - android-studio
+          - heroku
+          - intellij-idea-ultimate
 
     - name: Enable printer service and start it
       become: yes
       service:
         name: org.cups.cupsd
         enabled: yes
-
-    - name: Configure clipman
-      xfconf:
-        channel: "xfce4-panel"
-        property: "/plugins/clipman/settings/save-on-quit"
-        value_type: "bool"
-        value: "false"
-
-    - name: Configure keyboard layout #1
-      xfconf:
-        channel: "keyboard-layout"
-        property: "/Default/XkbLayout"
-        value_type: "string"
-        value: "us,gr"
-
-    - name: Configure keyboard layout #2
-      xfconf:
-        channel: "keyboard-layout"
-        property: "/Default/XkbVariant"
-        value_type: "string"
-        value: ","
-
-    - name: Configure keyboard layout #3
-      xfconf:
-        channel: "keyboard-layout"
-        property: "/Default/XkbOptions/Group"
-        value_type: "string"
-        value: "grp:alt_shift_toggle"
-
-    - name: Disable xfce4-terminal F1 key going to help
-      lineinfile:
-        path: ~/.config/xfce4/terminal/terminalrc
-        line: ShortcutsNoHelpkey=TRUE
-
-    # - name: Install vscode extensions
-    #   command: code --install-extension {{ item }}
-    #   with_items:
-    #     - eamodio.gitlens
-    #     - esbenp.prettier-vscode
-    #     - rbbit.typescript-hero
-    #     - vscodevim.vim
-    #     - dbaeumer.vscode-eslint
+        state: started
 
     - name: Add settings to .bashrc
       lineinfile:
@@ -163,33 +122,3 @@
         nvim --headless +PlugInstall +qall
       args:
         warn: no
-
-    # - name: Add alex user to bumblebee group
-    #   become: yes
-    #   user:
-    #     name: alex
-    #     group: bumblebee
-    #     append: yes
-
-    # - name: Set terminal font
-    #   lineinfile:
-    #     path: ~/.config/xfce4/terminal/terminalrc
-    #     regex: FontName
-    #     line: 'FontName=Noto Sans Mono Medium'
-
-    # - name: Add shortcut for volume up
-    #   lineinfile:
-    #     path: ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
-    #     regexp: 'Super&gt;Page_Up'
-    #     insertafter: Super(_L|&gt;r)
-    #     line: '      <property name="&lt;Super&gt;Page_Up" type="string" value="pulseaudio-ctl up"/>'
-
-    # - name: Add shortcut for volume down
-    #   lineinfile:
-    #     path: ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
-    #     regexp: 'Super&gt;Page_Down'
-    #     insertafter: Super(_L|&gt;r)
-    #     line: '      <property name="&lt;Super&gt;Page_Down" type="string" value="pulseaudio-ctl down"/>'
-
-    # - name: Set number of workspaces to 1
-    #   command: xfconf-query -c xfwm4 -p /general/workspace_count -s 1
