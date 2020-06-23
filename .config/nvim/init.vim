@@ -1,7 +1,7 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'mhartington/oceanic-next'
+Plug 'dracula/vim', {'as': 'dracula'}
 Plug 'w0rp/ale'
 Plug 'scrooloose/nerdtree'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf' }
@@ -29,6 +29,7 @@ set colorcolumn=101
 set ignorecase
 set smartcase
 set list
+set noerrorbells
 
 " indentation
 filetype plugin indent off
@@ -46,11 +47,8 @@ let g:ale_fix_on_save=1
 " colors
 set termguicolors
 set background=dark
-let g:oceanic_next_terminal_bold=1
-let g:oceanic_next_terminal_italic=1
 set guifont=DroidSansMono_Nerd_Font:h11
-colorscheme OceanicNext
-let g:airline_theme='oceanicnext'
+colorscheme dracula
 
 " tabs
 set tabstop=2

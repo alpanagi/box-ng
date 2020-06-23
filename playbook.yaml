@@ -28,11 +28,9 @@
         state: latest
         use: pacman
       with_items:
-        - cronie
         - chromium
         - filezilla
         - firefox
-        - galculator
         - gnu-netcat
         - krita
         - manjaro-printer
@@ -40,20 +38,11 @@
         - nmap
         - ranger
         - ripgrep
+        - snapd
         - tmux
         - tree
         - virtualbox
         - yay
-
-    - name: Install work software
-      become: yes
-      package:
-        name: '{{ item }}'
-        state: latest
-        use: pacman
-      with_items:
-        - kubectl
-        - terraform
 
     - name: Install development software
       become: yes
@@ -74,9 +63,14 @@
         - postgresql
         - python
         - python-pip
-        - docker
-        - docker-compose
         - yarn
+
+    - name: Enable snap
+      become: yes
+      service:
+        name: snapd
+        enabled: yes
+        state: started
 
     - name: Install snaps
       become: yes
@@ -87,23 +81,12 @@
           - heroku
           - intellij-idea-ultimate
 
-    - name: enable service httpd and ensure it is not masked
-      systemd:
-        name: cronie
-        enabled: yes
-        masked: no
-
-    - name: Enable docker service and start it
-      become: yes
-      service:
-        name: docker
-        enabled: yes
-
     - name: Enable printer service and start it
       become: yes
       service:
         name: org.cups.cupsd
         enabled: yes
+        state: started
 
     - name: Add settings to .bashrc
       lineinfile:
@@ -139,10 +122,3 @@
         nvim --headless +PlugInstall +qall
       args:
         warn: no
-
-    # - name: Add alex user to bumblebee group
-    #   become: yes
-    #   user:
-    #     name: alex
-    #     group: bumblebee
-    #     append: yes
