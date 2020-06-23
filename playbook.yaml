@@ -84,6 +84,8 @@
         classic: yes
         name:
           - android-studio
+          - heroku
+          - intellij-idea-ultimate
 
     - name: enable service httpd and ensure it is not masked
       systemd:
