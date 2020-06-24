@@ -7,3 +7,4 @@
 5. Log into Firefox account to enable Sync
 6. Install proprietary nvidia driver
 7. Copy ssh keys and config to new machine and chmod them to 700
+8. Setup keyboard layouts
