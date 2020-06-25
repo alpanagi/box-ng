@@ -32,6 +32,7 @@
         - filezilla
         - firefox
         - gnu-netcat
+        - kcm-wacomtablet
         - krita
         - manjaro-printer
         - neovim
@@ -43,6 +44,8 @@
         - tmux
         - tree
         - virtualbox
+        - vlc
+        - xf86-input-wacom
         - yay
 
     - name: Install development software
