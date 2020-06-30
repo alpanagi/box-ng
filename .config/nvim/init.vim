@@ -1,8 +1,8 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'dracula/vim', {'as': 'dracula'}
-Plug 'w0rp/ale'
+" Plug 'dracula/vim', {'as': 'dracula'}
+" Plug 'w0rp/ale'
 Plug 'scrooloose/nerdtree'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf' }
 Plug 'junegunn/fzf.vim'
@@ -16,6 +16,12 @@ Plug 'vim-airline/vim-airline'
 Plug 'leafgarland/typescript-vim'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'sheerun/vim-polyglot'
+Plug 'preservim/nerdcommenter'
+Plug 'psliwka/vim-smoothie'
+Plug 'arcticicestudio/nord-vim'
+Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
+Plug 'maxmellon/vim-jsx-pretty'
 
 call plug#end()
 
@@ -25,30 +31,34 @@ set cmdheight=2
 set number
 let mapleader=';'
 set updatetime=500
-set colorcolumn=101
+set colorcolumn=81
 set ignorecase
 set smartcase
 set list
 set noerrorbells
 
 " indentation
-filetype plugin indent off
-autocmd BufEnter *.tsx :setlocal filetype=typescript.tsx
+" filetype plugin indent off
+" autocmd BufEnter *.tsx :setlocal filetype=typescript.tsx
+
+" comments
+let g:NERDSpaceDelims = 1
 
 " ale
-let g:ale_fixers = {
-\   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'javascript': ['prettier', 'eslint'],
-\   'typescript': ['prettier', 'tslint'],
-\   'typescript.tsx': ['prettier', 'tslint'],
-\}
-let g:ale_fix_on_save=1
+" let g:ale_fixers = {
+" \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+" \   'javascript': ['prettier', 'eslint'],
+" \   'typescript': ['prettier', 'eslint'],
+" \   'typescript.tsx': ['prettier', 'eslint'],
+" \}
+" let g:ale_fix_on_save=1
 
 " colors
 set termguicolors
 set background=dark
-set guifont=DroidSansMono_Nerd_Font:h11
-colorscheme dracula
+" set guifont=DroidSansMono_Nerd_Font:h11
+" colorscheme dracula
+colorscheme nord
 
 " tabs
 set tabstop=2
@@ -105,10 +115,18 @@ let g:NERDTreeWinSize=40
 
 :nnoremap <leader>bdd :bufdo bwipeout<CR>
 
-nmap <silent> <leader>] :ALENext<cr>
-nmap <silent> <leader>[ :ALEPrevious<cr>
+" nmap <silent> <leader>] :ALENext<cr>
+" nmap <silent> <leader>[ :ALEPrevious<cr>
 
-" coc.nvim
+" coc
+let g:coc_global_extensions = ['coc-tsserver']
+if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
+  let g:coc_global_extensions += ['coc-prettier']
+endif
+if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
+  let g:coc_global_extensions += ['coc-eslint']
+endif
+
 inoremap <silent><expr> <c-space> coc#refresh()
 nmap <leader>rn <Plug>(coc-rename)
 

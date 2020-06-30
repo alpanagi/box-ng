@@ -117,6 +117,7 @@
         dest: ~/{{ item }}
       with_items:
         - .config/nvim/init.vim
+        - .config/nvim/coc-settings.json
         - .gitconfig
         - .tmux.conf
 
@@ -126,3 +127,7 @@
         nvim --headless +PlugInstall +qall
       args:
         warn: no
+
+    - name: Install coc extensions
+      shell: |
+        nvim -c 'CocInstall -sync coc-json coc-html coc-prettier coc-eslint coc-tsserver coc-markdownlint coc-java' +qall
