@@ -1,3 +1,5 @@
+# sudo usermod -a -G audio alex
+# sudo pacman -S cadence jack2 lib32-jack2 audacity
 -
   name: box-ng setup
   hosts: localhost
@@ -28,6 +30,7 @@
         state: latest
         use: pacman
       with_items:
+        - alacritty
         - chromium
         - filezilla
         - firefox
@@ -67,6 +70,7 @@
         - postgresql
         - python
         - python-pip
+        - rustup
         - yarn
 
     - name: Enable snap
@@ -100,6 +104,7 @@
         - set -o vi
         - alias vi='nvim'
         - alias vim='nvim'
+        - export EDITOR=nvim
 
     - name: Create workspace directory
       file:
