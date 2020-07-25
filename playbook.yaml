@@ -39,6 +39,7 @@
         - krita
         - manjaro-printer
         - neovim
+        - nerd-fonts-noto-sans-mono
         - nmap
         - psensor
         - ranger
@@ -135,4 +136,4 @@
 
     - name: Install coc extensions
       shell: |
-        nvim -c 'CocInstall -sync coc-json coc-html coc-prettier coc-eslint coc-tsserver coc-markdownlint coc-java' +qall
+        nvim -c 'CocInstall -sync coc-json coc-html coc-prettier coc-eslint coc-tsserver coc-markdownlint coc-java coc-rust-analyzer' +qall
