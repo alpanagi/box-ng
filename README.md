@@ -5,7 +5,8 @@
 3. Install ansible: `pacman -S ansible`
 4. Run: `ansible-playbook playbook.yaml --ask-become-pass`
 5. Log into Firefox account to enable Sync
-6. Install proprietary nvidia driver
-7. Copy ssh keys and config to new machine and chmod them to 700
-8. Setup keyboard layouts
-9. Setup NTP
+6. Log into Thunderbird
+7. Install proprietary nvidia driver
+8. Copy ssh keys and config to new machine and chmod them to 700
+9. Setup keyboard layouts
+10. Setup NTP
