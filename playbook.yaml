@@ -73,6 +73,7 @@
         - python
         - python-pip
         - rustup
+        - stack
         - yarn
 
     - name: Enable snap
