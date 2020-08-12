@@ -90,7 +90,6 @@
         name:
           - android-studio
           - heroku
-          - intellij-idea-ultimate
 
     - name: Enable printer service and start it
       become: yes
