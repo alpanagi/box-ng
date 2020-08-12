@@ -30,7 +30,6 @@
         state: latest
         use: pacman
       with_items:
-        - alacritty
         - chromium
         - filezilla
         - firefox
