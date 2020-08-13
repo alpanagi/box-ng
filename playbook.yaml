@@ -88,6 +88,7 @@
         classic: yes
         name:
           - android-studio
+          - drawio
           - heroku
 
     - name: Enable printer service and start it
