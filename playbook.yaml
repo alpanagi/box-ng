@@ -41,6 +41,7 @@
         - nerd-fonts-noto-sans-mono
         - nmap
         - psensor
+        - pulseaudio
         - ranger
         - ripgrep
         - snapd
@@ -74,6 +75,7 @@
         - rustup
         - stack
         - yarn
+        - yq
 
     - name: Enable snap
       become: yes
