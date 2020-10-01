@@ -10,6 +10,18 @@
         update_cache: yes
         upgrade: yes
 
+    - name: Install audio
+      become: yes
+      package:
+        name: '{{ item }}'
+        state: latest
+        use: pacman
+      with_items:
+        - jack2
+        - lib32-jack2
+        - libffado
+        - qjackctl
+
     - name: Install misc
       become: yes
       package:
