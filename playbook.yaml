@@ -75,6 +75,8 @@
       with_items:
         - base-devel
         - code
+        - docker
+        - docker-compose
         - nodejs
         - npm
         - jq
@@ -110,6 +112,13 @@
       become: yes
       service:
         name: org.cups.cupsd
+        enabled: yes
+        state: started
+
+    - name: Enable docker service and start it
+      become: yes
+      service:
+        name: docker
         enabled: yes
         state: started
 
