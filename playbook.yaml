@@ -107,6 +107,7 @@
           - android-studio
           - drawio
           - heroku
+          - webstorm
 
     - name: Enable printer service and start it
       become: yes
