@@ -19,6 +19,7 @@
       with_items:
         - i3-wm
         - dmenu
+        - i3status
 
     - name: Install audio
       become: yes
@@ -151,9 +152,14 @@
         path: ~/workspace
         state: directory
 
-    - name: Create nvim directory
+    - name: Create nvim config directory
       file:
         path: ~/.config/nvim/
+        state: directory
+
+    - name: Create i3 config directory
+      file:
+        path: ~/.config/i3/
         state: directory
 
     - name: Copy configuration files
@@ -163,6 +169,7 @@
       with_items:
         - .config/nvim/init.vim
         - .config/nvim/coc-settings.json
+        - .config/i3/config
         - .gitconfig
         - .tmux.conf
 
