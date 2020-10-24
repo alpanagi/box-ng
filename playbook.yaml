@@ -10,16 +10,17 @@
         update_cache: yes
         upgrade: yes
 
-    - name: Install i3
+    - name: Install graphical UI (i3+sddm)
       become: yes
       package:
         name: '{{ item }}'
         state: latest
         use: pacman
       with_items:
-        - i3-wm
         - dmenu
+        - i3-wm
         - i3status
+        - sddm
 
     - name: Install audio
       become: yes
@@ -58,7 +59,6 @@
         - filezilla
         - firefox
         - gnu-netcat
-        - kcm-wacomtablet
         - konsole
         - krita
         - manjaro-printer
