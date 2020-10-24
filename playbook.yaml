@@ -68,6 +68,7 @@
         - nmap
         - psensor
         - pulseaudio
+        - pv
         - ranger
         - ripgrep
         - snapd
