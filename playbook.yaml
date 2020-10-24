@@ -20,7 +20,16 @@
         - dmenu
         - i3-wm
         - i3status
+        - nvidia
         - sddm
+        - xorg
+        - xorg-xinit
+
+    - name: Enable sddm service
+      become: yes
+      service:
+        name: sddm
+        enabled: yes
 
     - name: Install audio
       become: yes
@@ -29,9 +38,12 @@
         state: latest
         use: pacman
       with_items:
+        - alsa-utils
         - jack2
         - lib32-jack2
         - libffado
+        - pulseaudio
+        - pulseaudio-alsa
         - qjackctl
 
     - name: Install misc
@@ -43,9 +55,8 @@
       with_items:
         - blender
         - gimp
-        - kdeconnect
         - libreoffice-fresh
-        - steam-manjaro
+        - steam
 
     - name: Install tools
       become: yes
@@ -54,32 +65,32 @@
         state: latest
         use: pacman
       with_items:
-        - baobab
         - chromium
+        - cups
+        - cups-pdf
         - filezilla
         - firefox
         - gnu-netcat
-        - konsole
+          # - konsole
         - krita
-        - manjaro-printer
         - ncdu
         - neovim
-        - nerd-fonts-noto-sans-mono
+          # - nerd-fonts-noto-sans-mono
         - nmap
         - psensor
-        - pulseaudio
         - pv
         - ranger
         - ripgrep
-        - snapd
+        - rxvt-unicode
+          # - snapd
         - task
-        - thunderbird
+          # - thunderbird
         - tmux
         - tree
         - virtualbox
         - vlc
         - xf86-input-wacom
-        - yay
+          # - yay
 
     - name: Install development software
       become: yes
@@ -97,9 +108,9 @@
         - jq
         - jdk-openjdk
         - maven
-        - openjdk-doc
-        - openjdk-src
-        - postgresql
+          # - openjdk-doc
+          # - openjdk-src
+          # - postgresql
         - python
         - python-pip
         - rustup
@@ -107,22 +118,21 @@
         - yarn
         - yq
 
-    - name: Enable snap
-      become: yes
-      service:
-        name: snapd
-        enabled: yes
-        state: started
+          # - name: Enable snap
+          #   become: yes
+          #   service:
+          #     name: snapd
+          #     enabled: yes
+          #     state: started
 
-    - name: Install snaps
-      become: yes
-      snap:
-        classic: yes
-        name:
-          - android-studio
-          - drawio
-          - heroku
-          - webstorm
+          # - name: Install snaps
+          #   become: yes
+          #   snap:
+          #     classic: yes
+          #     name:
+          #             # - android-studio
+          #             # - drawio
+          #       - heroku
 
     - name: Enable printer service and start it
       become: yes
@@ -171,6 +181,7 @@
         src:  '{{ item }}'
         dest: ~/{{ item }}
       with_items:
+        - .Xresources
         - .config/nvim/init.vim
         - .config/nvim/coc-settings.json
         - .config/i3/config
@@ -187,3 +198,19 @@
     - name: Install coc extensions
       shell: |
         nvim -c 'CocInstall -sync coc-json coc-html coc-prettier coc-eslint coc-tsserver coc-markdownlint coc-java coc-rust-analyzer' +qall
+
+    - name: Steam requirements
+      become: yes
+      package:
+        name: '{{ item }}'
+        state: latest
+        use: pacman
+      with_items:
+        - lib32-nss
+        - lib32-nvidia-utils
+
+    - name: Steam fix reslove.conf
+      shell: |
+        ls -sf /run/systemd/resolve/resolv.conf /etc/resolv.conf
+      args:
+        warn: no
