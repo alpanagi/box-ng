@@ -72,7 +72,7 @@
         - filezilla
         - firefox
         - gnu-netcat
-          # - konsole
+        - keepassxc
         - krita
         - ncdu
         - neovim
