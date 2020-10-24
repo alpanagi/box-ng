@@ -56,6 +56,7 @@
         - blender
         - gimp
         - libreoffice-fresh
+        - signal-desktop
         - steam
 
     - name: Install tools
