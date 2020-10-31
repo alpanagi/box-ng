@@ -2,7 +2,7 @@ if !exists('g:vscode')
   call plug#begin('~/.local/share/nvim/plugged')
   
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
-  " Plug 'dracula/vim', {'as': 'dracula'}
+  Plug 'dracula/vim', {'as': 'dracula'}
   " Plug 'w0rp/ale'
   Plug 'scrooloose/nerdtree'
   Plug 'junegunn/fzf', { 'dir': '~/.fzf' }
@@ -55,11 +55,11 @@ if !exists('g:vscode')
   " let g:ale_fix_on_save=1
   
   " colors
-  set termguicolors
-  set background=dark
+  " set termguicolors
+  " set background=dark
   " set guifont=DroidSansMono_Nerd_Font:h11
-  " colorscheme dracula
-  colorscheme nord
+  colorscheme dracula
+  " colorscheme nord
   
   " tabs
   set tabstop=2

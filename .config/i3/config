@@ -186,6 +186,6 @@ bar {
 for_window [class=".*"] border pixel 5
 hide_edge_borders smart_no_gaps
 
-exec "setxkbmap -layout us,gr"
-exec "setxkbmap -option 'grp:alt_shift_toggle'"
-exec --no-startup-id xsetroot -solid "#333333"
+exec_always setxkbmap -layout us,gr
+exec_always setxkbmap -option 'grp:alt_shift_toggle'
+exec_always --no-startup-id xsetroot -solid '#333333'
