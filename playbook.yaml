@@ -19,6 +19,7 @@
       with_items:
         - dmenu
         - i3-gaps
+        - i3lock
         - i3status
         - nvidia
         - sddm
@@ -71,6 +72,7 @@
         - cups-pdf
         - filezilla
         - firefox
+        - ghostwriter
         - gnu-netcat
         - keepassxc
         - krita
